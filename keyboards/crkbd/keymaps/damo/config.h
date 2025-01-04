@@ -22,14 +22,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 //#define USE_MATRIX_I2C
 
-/* Turn off RGB lights when power off */
-#define RGB_DISABLE_WHEN_USB_SUSPENDED
-
 /* Select hand configuration */
-
-#define MASTER_LEFT
+// #define MASTER_LEFT
 // #define MASTER_RIGHT
-// #define EE_HANDS
+#define EE_HANDS
 
 //#define QUICK_TAP_TERM 0
 //#define TAPPING_TERM 100

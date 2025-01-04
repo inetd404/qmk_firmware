@@ -22,9 +22,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 //#define USE_MATRIX_I2C
 
-/* Turn off RGB lights when power off */
-#define RGB_DISABLE_WHEN_USB_SUSPENDED
-
 /* Select hand configuration */
 
 #define MASTER_LEFT

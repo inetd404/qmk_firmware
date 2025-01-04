@@ -208,6 +208,7 @@ def _flash_uf2(file):
 def flasher(mcu, file):
     bl, details = _find_bootloader()
     # Add a small sleep to avoid race conditions
+    file = file.as_posix()
     time.sleep(1)
     if bl == 'atmel-dfu':
         _flash_atmel_dfu(details, file)
