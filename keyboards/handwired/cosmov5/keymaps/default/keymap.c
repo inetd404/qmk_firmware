@@ -3,11 +3,12 @@
 
 #include QMK_KEYBOARD_H
 
-enum key_layers {
-    _BASE,
-    _RAISE,
-    _LOWER
-};
+#define KC_NP KC_NO   // key is not present
+#define KC_NA KC_NO   // present but not available for use
+#define KC_NU KC_NO   // available but not used
+#define KC_RST KC_NU  // Was RESET
+
+enum layers { BASE, MEDR, NAVR, MOUR, NSSL, NSL, FUNL };
 
 #define RAISE MO(_RAISE)
 #define LOWER MO(_LOWER)
@@ -15,24 +16,46 @@ enum key_layers {
 #define ____ KC_TRNS
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_BASE] = LAYOUT(
-        KC_Q,     KC_W,        KC_E,        KC_R,       KC_T,              KC_Y,       KC_U,        KC_I,      KC_O,      KC_P,
-        KC_A,     KC_S,        KC_D,        KC_F,       KC_G,              KC_H,       KC_J,        KC_K,      KC_L,      KC_SCLN,
-        KC_Z,     KC_X,        KC_C,        KC_V,       KC_B,              KC_N,       KC_M,        KC_COMM,   KC_DOT,    KC_SLSH,
-                  LOWER,       KC_ESC,      KC_ENT,     KC_TAB,            KC_SPC,     KC_BSPC,     KC_DEL,    RAISE
-    ),
-
-    [_RAISE] = LAYOUT(
-        KC_1,     KC_2,        KC_3,        KC_4,       KC_5,              KC_6,       KC_7,        KC_8,      KC_9,      KC_0,
-     S(KC_9),     S(KC_0),     KC_LCBR,     KC_RCBR,    KC_EQL,            KC_MINS,    KC_4,        KC_5,      KC_6,      KC_QUOT,
-      QK_RBT,     QK_BOOT,     KC_LBRC,     KC_RBRC,    ____,              ____,       KC_1,        KC_2,      KC_3,      ____,
-                  ____,        ____,        ____,       ____,              ____,       ____,        ____,      ____   
-    ),
-
-    [_LOWER] = LAYOUT(
-     KC_EXLM,     KC_AT,       KC_HASH,     KC_DLR,     KC_PERC,           KC_CIRC,    KC_AMPR,     KC_ASTR,   KC_LPRN,   KC_RPRN,
-     S(KC_9),     S(KC_0),     KC_LBRC,     KC_RBRC,    KC_EQL,            ____,       KC_MINS,     KC_EQL,    KC_PIPE,   ____,
-     ____,        ____,        ____,        ____,       ____,              ____,       ____,        ____,      ____,      ____,
-                  ____,        ____,        ____,       ____,              ____,       ____,        ____,      ____
-    )
+  [BASE] = LAYOUT(
+    KC_Q,             KC_W,             KC_F,              KC_P,             KC_B,                     KC_J,              KC_L,              KC_U,              KC_Y,              KC_QUOT,
+    LGUI_T(KC_A),     LALT_T(KC_R),     LSFT_T(KC_S),      LCTL_T(KC_T),     KC_G,                     KC_M,              LCTL_T(KC_N),      LSFT_T(KC_E),      LALT_T(KC_I),      LGUI_T(KC_O),
+    KC_Z,             KC_X,             KC_C,              KC_D,             KC_V,                     KC_K,              KC_H,              KC_COMM,           KC_DOT,            KC_SLSH,
+                      KC_NP,            LT(MEDR, KC_ESC),  LT(NAVR, KC_ENT), LT(MOUR, KC_TAB),         LT(NSSL, KC_SPC),  LT(NSL, KC_BSPC),  LT(FUNL, KC_DEL),  KC_NP
+  ),
+  [NAVR] = LAYOUT(
+    KC_RST,  KC_NA,   KC_NA,   KC_NA,   KC_NA,              KC_AGIN, KC_UNDO, KC_CUT,  KC_COPY, KC_PSTE,
+    KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NA,              KC_CAPS, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
+    KC_NA,   KC_NA,   KC_NA,   KC_NA,   KC_NA,              KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+             KC_NP,   KC_NA,   KC_NA,   KC_NA,              KC_ENT,  KC_BSPC, KC_DEL,  KC_NP
+  ),
+  [MOUR] = LAYOUT(
+    KC_RST,  KC_NA,   KC_NA,   KC_NA,   KC_NA,              KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,
+    KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NA,              KC_NU,   KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,
+    KC_NA,   KC_NA,   KC_NA,   KC_NA,   KC_NA,              KC_NU,   KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R,
+             KC_NP,   KC_NA,   KC_NA,   KC_NA,              KC_BTN3, KC_BTN1, KC_BTN2, KC_NP
+  ),
+  [MEDR] = LAYOUT(
+    KC_RST,  KC_NA,   KC_NA,   KC_NA,   KC_NA,              KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,
+    KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NA,              KC_NU,   KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,
+    KC_NA,   KC_NA,   KC_NA,   KC_NA,   KC_NA,              KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,
+             KC_NP,   KC_NA,   KC_NA,   KC_NA,              KC_MSTP, KC_MPLY, KC_MUTE, KC_NP
+  ),
+  [FUNL] = LAYOUT(
+    KC_F12,  KC_F7,   KC_F8,   KC_F9,   KC_PSCR,            KC_NA,   KC_NA,   KC_NA,   KC_NA,   KC_RST,
+    KC_F11,  KC_F4,   KC_F5,   KC_F6,   KC_SCROLL_LOCK,     KC_NA,   KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+    KC_F10,  KC_F1,   KC_F2,   KC_F3,   KC_PAUS,            KC_NA,   KC_NA,   KC_NA,   KC_NA,   KC_NA,
+             KC_NP,   KC_APP,  KC_SPC,  KC_TAB,             KC_NA,   KC_NA,   KC_NA,   KC_NP
+  ),
+  [NSL] = LAYOUT(
+    KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC,            KC_NA,   KC_NA,   KC_NA,   KC_NA,   KC_RST,
+    KC_SCLN, KC_4,    KC_5,    KC_6,    KC_EQL,             KC_NA,   KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+    KC_GRV,  KC_1,    KC_2,    KC_3,    KC_BSLS,            KC_NA,   KC_NA,   KC_NA,   KC_NA,   KC_NA,
+             KC_NP,   KC_DOT,  KC_0,    KC_MINS,            KC_NA,   KC_NA,   KC_NA,   KC_NP
+  ),
+  [NSSL] = LAYOUT(
+    KC_LCBR, KC_AMPR, KC_ASTR, KC_LPRN, KC_RCBR,            KC_NA,   KC_NA,   KC_NA,   KC_NA,   KC_RST,
+    KC_COLN, KC_DLR,  KC_PERC, KC_CIRC, KC_PLUS,            KC_NA,   KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+    KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_PIPE,            KC_NA,   KC_NA,   KC_NA,   KC_NA,   KC_NA,
+             KC_GT,   KC_RPRN, KC_UNDS, KC_NA,              KC_NA,   KC_NA,   KC_NP,   KC_NP
+  )
 };
