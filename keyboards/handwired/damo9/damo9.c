@@ -1,28 +1,26 @@
 #include "quantum.h"
 #include "damo9.h"
-//#include "ssd1306.h"
-
-// void display_text(const char *text) {
-//     oled_clear();
-//     oled_set_cursor(0,1);
-//     oled_write_ln_P(text, false);
-// }    
+/*
+void display_text(const char *text) {
+    oled_clear();
+    oled_set_cursor(0,1);
+    oled_write_ln_P(text, false);
+}    
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     return OLED_ROTATION_90;
 }
 
-// bool oled_task_user(void) {
-//     display_text("Hello from damo9!");
-//     return false;
-
-//     // if (is_keyboard_master()) {
-//     //     render_status();
-//     // } else {
-//     //     render_logo();
-//     // }
-//     // return false;
-// }
+ bool oled_task_user(void) {
+     display_text("Hello from damo9!");
+     return false;
+     // if (is_keyboard_master()) {
+     //     render_status();
+     // } else {
+     //     render_logo();
+     // }
+     // return false;
+ }
 
 void render_status(void) {
     // Add the following to init_quantum:
@@ -63,3 +61,5 @@ void render_logo(void) {
 
     oled_write_P(qmk_logo, false);
 }
+
+*/
