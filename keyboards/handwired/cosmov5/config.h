@@ -31,7 +31,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SPLIT_USB_DETECT
 
 #define BOOTMAGIC_ROW 0
-#define BOOTMAGIC_COLUMN 1
+#define BOOTMAGIC_COLUMN 0
+
+#define TAPPING_TERM 300  // Default is 200ms, increase if needed
 
 // miryoku_qmk ---------------------------------------------------------------------------------------------------------------
 // ALL deprecated?!?!

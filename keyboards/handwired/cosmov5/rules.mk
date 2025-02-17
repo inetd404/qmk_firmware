@@ -7,7 +7,7 @@ CHIBIOS = yes
 #miryoku_qmk ---------------------------------------------------------------------------------------------------------------
 #MOUSEKEY_ENABLE = yes
 #EXTRAKEY_ENABLE = yes
-AUTO_SHIFT_ENABLE = yes
+AUTO_SHIFT_ENABLE = no
 #TAP_DANCE_ENABLE = yes
 CAPS_WORD_ENABLE = yes
 #KEY_OVERRIDE_ENABLE = yes
