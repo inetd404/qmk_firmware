@@ -16,19 +16,36 @@
 
 #include QMK_KEYBOARD_H
 
+#define LY_BASE  0
+#define LV_MOUSE 1
+
 enum custom_keycodes {
     TK_URL = SAFE_RANGE,
 };
 
+// Tap Dance declarations
+enum {
+    TD_ENT_MOUSE,
+};
+
+// Tap Dance definitions
+tap_dance_action_t tap_dance_actions[] = {
+    // Tap once for Escape, twice for Caps Lock
+    [TD_ENT_MOUSE] = ACTION_TAP_DANCE_DOUBLE(KC_ENT, KC_BTN1),
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [0] = LAYOUT(TK_URL, KC_ENT, KC_ESC),
+//    [0] = LAYOUT(TK_URL, MT(KC_MS_BTN1, KC_ENT) , KC_ESC),
+    [LY_BASE]  = LAYOUT(LT(LV_MOUSE, KC_ENT), TD(TD_ENT_MOUSE), KC_ESC),
+    [LV_MOUSE] = LAYOUT(KC_BTN1,              KC_A,             KC_ESC),
+//  [0] = LAYOUT(TK_URL, QK_MOUSE_BUTTON_1, KC_ESC),
+//  [0] = LAYOUT(TK_URL, KC_ENT, KC_ESC),
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case TK_URL:
             if (record->event.pressed) {
-                // when keycode TK_URL is pressed
                 SEND_STRING("Time Series Uplift Deployed: Ross, Nathan, Sasa, Alex, Tom, Adarsh, Kapil & Dameon\n");
             }
             break;

@@ -15,3 +15,5 @@
  */
 
 #include "thekey.h"
+
+//const uint8_t RGBLED_BREATHING_INTERVALS[] PROGMEM = {30, 20, 10, 5};

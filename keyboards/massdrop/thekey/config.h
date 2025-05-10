@@ -43,9 +43,14 @@
 #define RGB_DI_PIN B1
 //#define RGBLED_NUM 5
 #define RGBLIGHT_ANIMATIONS
+//#define RGBLIGHT_EFFECT_BREATHING
+//#define RGBLIGHT_MODE_BREATHING
 #define RGBLIGHT_HUE_STEP 8
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
 #define RGBLIGHT_LIMIT_VAL 255 /* The maximum brightness level */
 #define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
 //#define RGBLIGHT_LED_MAP {1, 2, 3, 4, 0}
+
+#define TAPPING_TERM 300
+#define TAPPING_TERM_PER_KEY
