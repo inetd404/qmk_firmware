@@ -5,14 +5,25 @@
  * the Free Software Foundation, either version 2 of the License, or
  * (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * This program is distr
+ * 
+ * 
+ * 
+ * ibuted in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; 
+ *  even the i
+ * 
+ * 
+ * mplied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
+ * You should have received a copy of the GNU Gen
+ * eral Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+
 
 #pragma once
 
@@ -43,14 +54,20 @@
 #define RGB_DI_PIN B1
 //#define RGBLED_NUM 5
 #define RGBLIGHT_ANIMATIONS
-//#define RGBLIGHT_EFFECT_BREATHING
-//#define RGBLIGHT_MODE_BREATHING
 #define RGBLIGHT_HUE_STEP 8
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
 #define RGBLIGHT_LIMIT_VAL 255 /* The maximum brightness level */
-#define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
+// #define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
 //#define RGBLIGHT_LED_MAP {1, 2, 3, 4, 0}
+//#define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_BREATHING+1
+#define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_RAINBOW_MOOD
+//#define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_TWINKLE
+#define RGBLIGHT_EFFECT_BREATHE_MAX 255
+//#define RGBLIGHT_MODE_BREATHING 1
+#define RGBLIGHT_LAYERS
+#define RGBLIGHT_LAYER_BLINK
+#define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
 
 #define TAPPING_TERM 300
 #define TAPPING_TERM_PER_KEY
