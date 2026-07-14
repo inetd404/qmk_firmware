@@ -1,7 +1,8 @@
 {
     "config": {
         "features": {
-            "via": true
+            "caps_word": true,
+            "via": false
         }
     }
 }
